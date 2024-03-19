@@ -12,6 +12,9 @@ const Header = () => {
   function navToEvent(){
     router.push('/event')
   }
+  function navToQR(){
+    router.push('/tools/qrcode')
+  }
   return (
     <section className="inline-flex bg-white items-center top-0 w-full h-[100px]">
       <section className="inline-flex ">
@@ -29,7 +32,7 @@ const Header = () => {
       <div className="inline-flex pl-[440px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
             <p className="drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]"><Link href = "/event">events</Link></p>
             <p className="ml-[80px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">memory</p>
-            <p className="ml-[80px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">tools</p>
+            <p className="ml-[80px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]"><Link href = "/tools/qrcode">tools</Link></p>
             <p className="ml-[80px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">plans</p>
       </div>
       <Button

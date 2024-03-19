@@ -34,6 +34,9 @@ export default function Homepage() {
   function navToEvent() {
     router.push("/event");
   }
+  function navToQR() {
+    router.push("/tools/qrcode");
+  }
   return (
     <div className="mx-auto w-full">
       <Image
