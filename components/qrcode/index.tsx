@@ -1,6 +1,7 @@
+'use client'
 import React, { useEffect, useRef, useState } from "react";
 import QRCodeStyling from "qr-code-styling";
-
+import "global"
 type AppProps = {
   initialUrl: string;
   initialFileExt: string;
@@ -25,10 +26,18 @@ const App: React.FC<AppProps> = ({
   const [url, setUrl] = useState(initialUrl);
   const [fileExt, setFileExt] = useState(initialFileExt);
   const [prevText, setPrevText] = useState<string | null>(null);
+  const [size, setSize] = useState(100);
   const BgColor = bgColor;
   const DotColor = dotColor;
   const qrContainerRef = useRef<HTMLDivElement>(null);
   const qrCode = useRef<QRCodeStyling | null>(null);
+  // const [qrCodeStyling, setQRCodeStyling] = useState<string>('');
+
+  // useEffect(() => {
+  //   import("qr-code-styling").then((module) => {
+  //     setQRCodeStyling(module.default);
+  //   });
+  // }, []);
 
   useEffect(() => {
     qrCode.current = new QRCodeStyling({

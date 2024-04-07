@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react"; // Import useState from 'react'
-import QRCodeStyling from "qr-code-styling";
 import ColorPicker from "@/components/color-picker";
-import TextInputDropdown from "@/components/textInput";
 import FontPicker from "@/components/font-picker";
-import QRCodeGenerator from "@/components/qrcode";
-import App from "@/components/qrcode";
-import { text } from "stream/consumers";
-import QRCodeWithImage from "@/components/test";
+import WiFiQRGenerator from "@/components/test";
+import dynamic from "next/dynamic";
+const App = dynamic(
+  () => import("@/components/qrcode"), // Dynamically import the QR code component
+  { ssr: false } // Ensure that the component is only rendered on the client-side
+);
 const QrCode = () => {
   // Capitalize component name
   const [inputUrl, setInputUrl] = useState("");
@@ -18,7 +18,7 @@ const QrCode = () => {
   const [textColor, setTextColor] = useState("#FF0000");
   const [font, setFont] = useState("Arial");
   const [dotColor, setDotColor] = useState("#000000");
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [imageUrl, setImageUrl] = useState('');
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files && event.target.files[0];
@@ -158,6 +158,7 @@ const QrCode = () => {
               font={font}
             />
           )}
+          <WiFiQRGenerator />
         </div>
       </div>
     </>
